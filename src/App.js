@@ -66,6 +66,24 @@ const Quiz = ({ questions }) => {
       setShowScore(true)
     }
   }
+
+  const handleForwardClick = ()=>{
+    const nextQuestionIndex = currentQuestionIndex +1
+    if(nextQuestionIndex < questions.length){
+      setCurrentQuestionIndex(nextQuestionIndex)
+      }else {
+        setShowScore(true)
+      }
+    }
+
+    const handleBackClick = ()=>{
+      const nextQuestionIndex = currentQuestionIndex -1
+      if(nextQuestionIndex >= 0){
+        setCurrentQuestionIndex(nextQuestionIndex)
+      }
+    }
+
+  
 return (
   <div className="flex items-center justify-center min-h-screen bg-slate-300">
 {showScore ? (
@@ -84,13 +102,21 @@ return (
               </button>
             ))}
           </div>
+          <div className="mx-11">
+          <button className="bg-indigo-700 hover:bg-indigo-600 text-white py-3 px-4 mx-5 rounded-lg" onClick={handleBackClick}>Geri</button>
+          
+          <button className="bg-indigo-700 hover:bg-indigo-600 text-white py-3 px-4 my-3 rounded-lg" onClick={handleForwardClick}>Ileri</button>
+          
+          
+          </div>
+          
   </div>
 )
 }    
   </div>
 )
+}
 
 
-};
 
 export default App;
