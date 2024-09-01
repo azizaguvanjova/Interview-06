@@ -83,14 +83,24 @@ const Quiz = ({ questions }) => {
       }
     }
 
+    const handleRerstart = () =>{
+      setCurrentQuestionIndex(0)
+      setScore(0)
+      setShowScore(false)
+    }
+
   
 return (
   <div className="flex items-center justify-center min-h-screen bg-slate-300">
 {showScore ? (
   <div className="bg-white p-8 rounded-lg shadow-md text-center max-w-md w-full">
     <h2 className="text-2xl font-bold mb-4">Your Score: {(score / questions.length) *100}%</h2>
-   
+    <button
+    onClick={handleRerstart}
+    className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+    >tekrar başlat</button>
   </div>
+
 ) : (
   <div className="question-section">
     <h2 className="text-xl font-semibold mb-6">{questions[currentQuestionIndex].question}</h2>
